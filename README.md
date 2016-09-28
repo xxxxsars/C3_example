@@ -8,8 +8,8 @@ cd "檔案所在跟目錄"
 pip install pyodbc-3.0.10-cp35-none-win32.whl
 ```
 
-2.下載C3.js與D3.js(雖然使用C3但C3的基礎建立在D3之上故還是需要引用D3檔案)
-[C3.JS](https://github.com/c3js/c3/archive/0.4.11.zip)
+2.下載C3.js與D3.js(雖然使用C3但C3的基礎建立在D3之上故還是需要引用D3檔案)    
+[C3.JS](https://github.com/c3js/c3/archive/0.4.11.zip)    
 [D3.JS](https://github.com/d3/d3/releases/download/v4.2.6/d3.zip)
 
 3.引用JS file 到html檔案中，引用方式有底下兩種方式，並提供相關語法

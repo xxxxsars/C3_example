@@ -82,7 +82,7 @@ var chart = c3.generate({
 <script src="../static/d3/d3.js" charset="utf-8"></script>
 ```
 
-5.資料庫準備
+5.資料庫準備   
 ```SQL server
 CREATE TABLE [dbo].[C3](
 	[Data1] [int] NULL,

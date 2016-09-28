@@ -4,7 +4,7 @@ import pyodbc
 #create connect session
 conn = pyodbc.connect('DRIVER={SQL Server};SERVER="your server or ip";DATABASE="Database name";UID="user name";PWD="password"')
 
-app  = Flask(__name__)
+
 
 #connect to sql server and  ,parameter tb_name=>giving your sql server table name
 def db_fetch(tb_name):
@@ -15,6 +15,7 @@ def db_fetch(tb_name):
 
     return (list(rows))
 
+app  = Flask(__name__)
 
 @app.route('/')
 def index():

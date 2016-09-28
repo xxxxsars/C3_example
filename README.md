@@ -83,7 +83,7 @@ var chart = c3.generate({
 ```
 
 5.資料庫準備   
-```SQL server
+```SQL
 CREATE TABLE [dbo].[C3](
 	[Data1] [int] NULL,
 	[Data2] [int] NOT NULL

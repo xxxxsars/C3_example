@@ -127,3 +127,6 @@ def index():
 
 app.run()
 ```
+
+6.成果展現
+![](https://github.com/xxxxsars/C3_example/blob/master/pic/run_c3%20page.png?raw=true)

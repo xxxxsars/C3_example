@@ -19,6 +19,12 @@ pip install pyodbc-3.0.10-cp35-none-win32.whl
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.js"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.css" rel="stylesheet" type="text/css">
 ```
-+  利用自行下載的JS檔案引用
-```
++  利用自行下載的JS檔案引用   
+(這邊的src擇要對應你所存放的c3與d3的js，以及c3的css，這邊要注意的是flask讀取相關的css與js需要放在static資料夾下，因此建議參閱下圖的存放方式，將c3與d3相關檔案分別放入兩個資料夾中，再將兩資料夾放入static資料夾下以便flask讀取)
+```JavaScript
+ <!-- Load c3.css -->
+<link href="../static/c3/c3.min.css" rel="stylesheet" type="text/css">
+<!-- Load d3.js and c3.js   (Using d3 and c3 web page download and unzip in your project)-->
+<script src="../static/c3/c3.min.js" ></script>
+<script src="../static/d3/d3.js" charset="utf-8"></script>
 ```

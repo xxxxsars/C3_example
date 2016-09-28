@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <!-- Load c3.css -->
+<link href="../static/c3/c3.min.css" rel="stylesheet" type="text/css">
+
+<!-- Load d3.js and c3.js   (go to d3 and c3 web page download and unzip in your project)-->
+<script src="../static/c3/c3.min.js" ></script>
+<script src="../static/d3/d3.js" charset="utf-8"></script>
+
+    <title>Title</title>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+
+function myConcat(col_name,arguments) {
+   var array_data = [col_name.toString()]
+   for (var i = 0; i < arguments.length; i++) {
+      array_data.push(arguments[i]);
+   }
+   return array_data;
+}
+
+
+var someJavaScriptVar = {{ data1 }};
+var someJavaScriptVar2 = {{ data2 }};
+
+var data1 =myConcat("data1",someJavaScriptVar)
+var data2 = myConcat("data2",someJavaScriptVar2)
+
+
+var chart = c3.generate({
+    data: {
+        columns: [
+
+            data1,
+            data2
+        ]
+    },
+    axis: {
+        x: {
+            type: 'category',
+            categories: ['cat1', 'cat2', 'cat3','cat4','cat5','cat6','cat7']
+        }
+    }
+});
+</script>
+</body>
+</html>

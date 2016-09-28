@@ -90,7 +90,7 @@ CREATE TABLE [dbo].[C3](
 	[Data2] [int] NOT NULL
 ) ON [PRIMARY]
 ```
-+  隨意插入資料欄位可參考下圖
++  隨意插入資料欄位可參考下圖    
 ![](https://github.com/xxxxsars/C3_example/blob/master/pic/Sql_data.png?raw=true)
 
 

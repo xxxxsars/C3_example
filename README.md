@@ -83,9 +83,46 @@ var chart = c3.generate({
 ```
 
 5.資料庫準備   
++   建立資料表
 ```SQL
 CREATE TABLE [dbo].[C3](
 	[Data1] [int] NULL,
 	[Data2] [int] NOT NULL
 ) ON [PRIMARY]
+```
++  隨意插入資料欄位可參考下圖
+
+
+6.Flask主程式撰寫
++  建立資料庫連線資料
+```python
+#create connect session
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER="your server or ip";DATABASE="Database name";UID="user name";PWD="password"')
+```
++  編寫連結語法(透過此function可以連接到你指定的表格，並進行資料讀取)
+```
+#connect to sql server and  ,parameter tb_name=>giving your sql server table name
+def db_fetch(tb_name):
+    cursor = conn.cursor()
+    cursor= conn.cursor()
+    cursor.execute("select * from %s"%tb_name)
+    rows = cursor.fetchall()
+
+    return (list(rows))
+```
+
++  建立flask，這邊將上面讀取到的資料庫檔案透過Flask送到前端頁面，前端頁面透過Jinja2接收後，發布給c3.JS做資料呈現
+```python
+app  = Flask(__name__)
+
+@app.route('/')
+def index():
+    data1=  []
+    data2 = []
+    for a,b in db_fetch('C3'):
+        data1.append(a)
+        data2.append(b)
+    return render_template('index.html',data1 = data1,data2 =data2)
+
+app.run()
 ```

@@ -14,7 +14,7 @@ pip install pyodbc-3.0.10-cp35-none-win32.whl
 
 3.引用JS file 到html檔案中，引用方式有底下兩種方式，並提供相關語法
 +  利用網址引用(只需要在html檔案中的head標籤引用以下語法即可)
-```
+```JavaScript
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.js"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.css" rel="stylesheet" type="text/css">

@@ -12,7 +12,60 @@ pip install pyodbc-3.0.10-cp35-none-win32.whl
 [C3.JS](https://github.com/c3js/c3/archive/0.4.11.zip)    
 [D3.JS](https://github.com/d3/d3/releases/download/v4.2.6/d3.zip)
 
-3.引用JS file 到html檔案中，引用方式有底下兩種方式，並提供相關語法
+3.建立index.html頁面
++  第一步建立基本html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+```   
++   建立JavaScript的語法區塊，在body tag中加入以下語法，這邊的function   myConcat為讀取Flask送來的資料透過處理後轉換成C3能讀取的array
+    會傳回一個重資料庫讀取的array檔，其中此function有兩個參數，因為C3需要給予資料命名，因此地一個參數為命名，第二個參數才是要處理重python來的list
+    ，轉換為c3所要的array，someJavaScriptvar與someJavaScriptvar2為讀取Flask來的資料，並在丟給myConcatfunction處理
+```
+<div id="chart"></div>
+<script>
+
+function myConcat(col_name,arguments) {
+   var array_data = [col_name.toString()]
+   for (var i = 0; i < arguments.length; i++) {
+      array_data.push(arguments[i]);
+   }
+   return array_data;
+}
+
+var someJavaScriptVar = {{ data1 }};
+var someJavaScriptVar2 = {{ data2 }};
+
+var data1 =myConcat("data1",someJavaScriptVar)
+var data2 = myConcat("data2",someJavaScriptVar2)
+
+var chart = c3.generate({
+    data: {
+        columns: [
+
+            data1,
+            data2
+        ]
+    },
+    axis: {
+        x: {
+            type: 'category',
+            categories: ['cat1', 'cat2', 'cat3','cat4','cat5','cat6','cat7']
+        }
+    }
+});
+</script>
+```
+
+4.引用JS file 到html檔案中，引用方式有底下兩種方式，並提供相關語法
 +  利用網址引用(只需要在html檔案中的head標籤引用以下語法即可)
 ```JavaScript
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>

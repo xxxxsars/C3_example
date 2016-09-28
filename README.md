@@ -91,6 +91,7 @@ CREATE TABLE [dbo].[C3](
 ) ON [PRIMARY]
 ```
 +  隨意插入資料欄位可參考下圖
+![](https://github.com/xxxxsars/C3_example/blob/master/pic/Sql_data.png?raw=true)
 
 
 6.Flask主程式撰寫
